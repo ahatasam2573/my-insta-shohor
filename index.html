@@ -58,7 +58,7 @@
         </div>
     </main>
     <!-- Answering Question Section -->
-    <section class="d-flex ms-5 ps-5 mb-4 mt-3">
+    <section id="answer-part" class="d-flex ms-5 ps-5 mb-4 mt-3">
         <div class="bg-success bg-opacity-25 fw-bold w-25 p-4 me-5 rounded">
             <p>Q1.How does JavaScript work?</p>
             <p>Ans : জাভাস্ক্রিপ্ট একটি single-threaded প্রোগ্রামিং ভাষা</p>
@@ -73,21 +73,23 @@
         </div>
         <div class="bg-success bg-opacity-25 fw-bold w-25 p-4 me-5 rounded">
             <p>Q2.What does JavaScript event loop do?</p>
-            <p>The Event Loop is one of the most important aspects to understand about JavaScript.</p>
-            <p>The event loop continuously checks the call stack to see if there’s any function that needs to run.</p>
-            <p>The loop gives priority to the call stack, and it first processes everything it finds in the call stack,
-                <br>
-                and once there’s nothing in there, <br> it goes to pick up things in the message queue.
+            <p>One of the most important aspects of JavaScript to understand is the Event Loop.</p>
+            <p>JavaScript has an event loop-based runtime model that is responsible for executing code, collecting and
+                processing events, and executing queued sub-tasks.</p>
+            <p>The event loop constantly checks the call stack to see if any functions need to be executed. The loop
+                prioritizes the call stack, </p>
+            <p> and it processes everything it finds in there first, then moves on to the message queue if there is
+                nothing in there.
             </p>
 
         </div>
         <div class="bg-success bg-opacity-25 fw-bold w-25 p-4 rounded">
             <p>Q3.Difference between Local Storage and Session Storage?</p>
-            <p>The difference between sessionStorage and localStorage is that localStorage data does not expire,<br>
-                whereas
-                sessionStorage data is cleared when the page session ends.</p>
-            <p>SessionStorage data persists for one session whereas the data for localStorage persists till it is
-                removed from the browser by the user or the origin setting it.</p>
+            <p>The distinction between sessionStorage and localStorage is that localStorage data does not expire,
+            </p>
+            <p>whereas session Storage data is cleared when the page session terminates. Session Storage data is
+                retained for one session, whereas local Storage data is retained until it is removed from the browser by
+                the user or the origin setting it.</p>
         </div>
 
     </section>
