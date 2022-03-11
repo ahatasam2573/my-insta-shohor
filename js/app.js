@@ -76,7 +76,7 @@ const createPost = (post) => {
                 <div class="post__medias">
                   <img
                     class="post__media"
-                    src="${image}"
+                    src="${post.image}"
                     alt="Post Content"
                   />
                 </div>
