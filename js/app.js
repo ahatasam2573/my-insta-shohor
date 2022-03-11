@@ -4,11 +4,11 @@ const likedPostsId = [];
 const reportedPostsId = [];
 
 const getLikedPosts = () => {
-  return posts.filter((post) => likedPostsId.includes(post.id));
+  return posts.filter(post => likedPostsId.includes(post.id));
 };
 
 const getReportedPosts = () => {
-  return posts.filter((post) => reportedPostsId.includes(post.id));
+  return posts.filter(post => reportedPostsId.includes(post.id));
 };
 
 const isLiked = (id) => {
@@ -16,42 +16,42 @@ const isLiked = (id) => {
 };
 
 const addToLiked = (id) => {
-  likedPostsId.plus(id);
+  likedPostsId.push(id);
   showPosts(posts);
 };
 
 const reportPost = (id) => {
   reportedPostsId.push(id);
-  const remainingPosts = posts.filter((post) => !reportedPostsId.includes(post.id));
+  const remainingPosts = posts.filter(post => !reportedPostsId.includes(post.id));
   showPosts(remainingPosts);
 };
 
 const displayContent = (text) => {
-  return text.length < 30 ? 'text' : text.slice(0, 30) + "<span class='fw-bold'>... read more</span>";
+  return text.length < 30 ? text : text.slice(0, 30) + "<span class='fw - bold'>... read more</span>";
 };
 
 const switchTab = (id) => {
   if (id === "posts") {
-    document.getElementById("posts").style.display = "grid";
-    document.getElementById("liked").style.display = "none";
-    document.getElementById("reported").style.display = "none";
+    document.getElementById('posts').style.display = 'grid';
+    document.getElementById('liked').style.display = 'none';
+    document.getElementById('reported').style.display = 'none';
   } else if (id === "liked") {
     document.getElementById("liked").style.display = "block";
     document.getElementById("posts").style.display = "none";
     document.getElementById("reported").style.display = "none";
-
     displayLikedPosts();
+
   } else {
     document.getElementById("reported").style.display = "block";
     document.getElementById("posts").style.display = "none";
     document.getElementById("liked").style.display = "none";
-
     displayReportedPosts();
+
   }
 };
 
 const createPost = (post) => {
-  const image = post.image;
+  const image = post.userImage;
   const div = document.createElement("article");
   div.classList.add("post");
   div.innerHTML = `
@@ -95,8 +95,7 @@ const createPost = (post) => {
 
                   <div class="post__indicators"></div>
 
-                  <button class="post__button post__button--align-right" onclick="reportPost(${post.id
-    })">
+                  <button class="post__button post__button--align-right" onclick="reportPost(${post.id})">
                     <i class="fa-solid fa-ban"></i>
                   </button>
                 </div>
@@ -142,6 +141,7 @@ const showPosts = (posts) => {
 };
 
 const displayLikedPosts = () => {
+  document.getElementById("liked").innerHTML = '';
   const likedPosts = getLikedPosts();
   likedPosts.forEach((post) => {
     const div = createPost(post);
@@ -150,7 +150,7 @@ const displayLikedPosts = () => {
 };
 
 const displayReportedPosts = () => {
-  document.getElementById('reported'.innerHTML = '');
+  document.getElementById("reported").innerHTML = '';
   const reportedPosts = getReportedPosts();
   reportedPosts.forEach((post) => {
     const div = createPost(post);
@@ -163,5 +163,4 @@ const loadPosts = async () => {
   posts = await data.json();
   showPosts(posts);
 }
-
 loadPosts();
